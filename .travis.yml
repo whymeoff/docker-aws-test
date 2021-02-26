@@ -6,7 +6,7 @@ before_install:
   - docker build -t whymeoff/frontend:latest -f Dockerfile.dev .
 
 script:
-  - docker run whymeoff/frontend:latest npm run test -- --coverage
+  - docker run -e CI=true whymeoff/frontend:latest npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
